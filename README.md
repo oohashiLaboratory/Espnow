@@ -1,5 +1,3 @@
-# Espnow
-
 ## sendEnvData  
 環境データを取得し親機に送信するプログラム  
 
