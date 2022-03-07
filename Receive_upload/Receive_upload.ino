@@ -15,8 +15,10 @@ float vbat = 0;//本体電圧
 
 float Data[10];
 float env = 0;
+
 WiFiClient client;
 Ambient ambient;
+
 int RNo;//送信機番号
 void toggleLed()    //LEDの状態切り替え関数
 {
@@ -71,8 +73,9 @@ void onReceive(const uint8_t* mac_addr, const uint8_t* ReceiveData, int ReceiveD
         }
     }
 
-    m5.Lcd.setCursor(2,40);
-    M5.Lcd.print("Recv data: \n"); //受信データ
+    m5.Lcd.setCursor(2,40);//LCD
+    //受信データを表示
+    M5.Lcd.print("Recv data: \n"); 
     for (int i = 0; i < 10; i++)
     {
         M5.Lcd.print(Data[i]);
