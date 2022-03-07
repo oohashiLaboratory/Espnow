@@ -10,8 +10,8 @@
 #include "SHT3X.h"   //M5Stack用環境センサユニット ver.2
 #include <Adafruit_BMP280.h>
 
-uint8_t ReceiveAddress[] = { 0x94, 0xB9, 0x7E, 0x92, 0xE7, 0xCC }; // 受信機のMACアドレスに書き換える macアドレスはM5.Lcd.println(WiFi.macAddress())で確認する0x94, 0xB9, 0x7E, 0x92,までは固定
-//uint8_t ReceiveAddress2[] = { 0x94, 0xB9, 0x7E, 0x92, 0xB2, 0x48 };
+uint8_t ReceiveAddress[] = { 0x94, 0xB9, 0x7E, 0x92, 0xE7, 0xCC }; // 受信機のMACアドレスに書き換える macアドレスはM5.Lcd.println(WiFi.macAddress())で確認する
+//uint8_tのため0~255までしか送れない
 
 float tmp = 0.0;      //温度変数
 float hum = 0.0;      //湿度変数
