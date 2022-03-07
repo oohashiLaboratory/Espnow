@@ -34,16 +34,16 @@ void toggleLed()    //LEDの状態切り替え関数
 
 void onReceive(const uint8_t* mac_addr, const uint8_t* ReceiveData, int ReceiveData_len)//受信アドレス 受信データ（配列数） 受信データ数(配列数)
 {
-    M5.Lcd.fillScreen(BLACK);
-    m5.Lcd.setCursor(2,0);
+    M5.Lcd.fillScreen(BLACK);//LCDを黒で塗りつぶし
+    m5.Lcd.setCursor(2,0);//LCDのカーソルを移動
     char macStr[18];
     snprintf(macStr, sizeof(macStr), "%02X:%02X:%02X:%02X:%02X:%02X",
         mac_addr[0], mac_addr[1], mac_addr[2], mac_addr[3], mac_addr[4], mac_addr[5]);  //配列macStrにmac_addrのデータを格納
     Serial.println();
 
-    M5.lcd.setCursor(0,0);
-    M5.Lcd.printf("Last Packet Recv from: %s\n", macStr);   //最後のパケット受信元
-    M5.Lcd.printf("Last Packet Recv data(%d): ", ReceiveData_len); //最後の受信データ数
+    M5.lcd.setCursor(0,0);//LCDのカーソルを移動
+    M5.Lcd.printf("Last Packet Recv from: %s\n", macStr);   //最後のパケット受信元を表示
+    M5.Lcd.printf("Last Packet Recv data(%d): ", ReceiveData_len); //最後の受信データ数を表示
 
     if (ReceiveData[0] <= 9)//機器判別番号が10（所定数）以下
     {
