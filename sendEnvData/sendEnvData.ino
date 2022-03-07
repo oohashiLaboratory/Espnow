@@ -80,6 +80,7 @@ void loop()
             tmp = sht30.cTemp;              //温度取り込み
         }
         float decimal;
+        
         if(tmp<0)//tmpがマイナスの時
         {
             data[1] = 0;
@@ -119,8 +120,8 @@ void loop()
             M5.Lcd.println("Not sure what happened");//不明
             break;
         }
-      M5.Lcd.println(tmp);
-    for (int i = 0; i < 6; i++)
+      M5.Lcd.println(tmp);//環境センサのデータを表示
+    for (int i = 0; i < 6; i++)//送信データの表示
     {
         M5.Lcd.print(data[i]);
         M5.Lcd.print(" ");
