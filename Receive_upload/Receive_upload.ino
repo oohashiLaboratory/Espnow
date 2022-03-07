@@ -48,8 +48,8 @@ void onReceive(const uint8_t* mac_addr, const uint8_t* ReceiveData, int ReceiveD
     if (ReceiveData[0] <= 9)//機器判別番号が10（所定数）以下
     {
         
-        RNo = ReceiveData[0];
-        if(ReceiveData[1]==0)
+        RNo = ReceiveData[0];//送信機番号
+        if(ReceiveData[1]==0)//符号データが0（－）の時
         {
             env = ((float)ReceiveData[2]+((float)ReceiveData[3]/100))*(-1);
             
@@ -60,6 +60,7 @@ void onReceive(const uint8_t* mac_addr, const uint8_t* ReceiveData, int ReceiveD
             Data[RNo]=(float)env;
         }
      }
+    
     for (int i = 0; i < ReceiveData_len; i++)
     {
         M5.Lcd.print(ReceiveData[i]); //受信データの表示
