@@ -56,7 +56,7 @@ void onReceive(const uint8_t* mac_addr, const uint8_t* ReceiveData, int ReceiveD
             env = ((float)ReceiveData[2]+((float)ReceiveData[3]/100))*(-1);
             
         }
-        else
+        else////符号データが0以外（+）の時
         {
             env = (float)ReceiveData[2]+((float)ReceiveData[3]*(float)0.01);
             Data[RNo]=(float)env;
